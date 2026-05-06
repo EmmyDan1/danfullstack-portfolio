@@ -1,39 +1,20 @@
 "use client";
+import Link from "next/link";
 
-import { useState, useEffect } from "react";
-import { Github, Linkedin, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "HOME", href: "#" },
-  { label: "WORK", href: "#works" },
-  { label: "ABOUT", href: "#about" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "WORK", href: "/work" },
+  { label: "ABOUT", href: "/about" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("HOME");
 
-  useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.href.replace("#", "")))
-      .filter(Boolean) as HTMLElement[];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            const match = navItems.find((item) => item.href === `#${id}`);
-            if (match) setActive(match.label);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
@@ -45,19 +26,17 @@ export default function Navbar() {
         {/* Menu Items */}
         <nav className="flex items-center gap-4">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              style={{}}
               className={`text-xs font-medium tracking-widest transition-colors pb-1 ${
-                active === item.label
+                isActive(item.href)
                   ? "text-white border-b border-white"
                   : "text-white/50 hover:text-white"
               }`}
-              onClick={() => setActive(item.label)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -83,19 +62,18 @@ export default function Navbar() {
         {/* Menu Items */}
         <nav className="flex flex-col items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
               className={`text-xs font-medium tracking-widest transition-colors ${
-                active === item.label
+                isActive(item.href)
                   ? "text-white border-r border-white pr-1"
                   : "text-white/50 hover:text-white"
               }`}
-              onClick={() => setActive(item.label)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
