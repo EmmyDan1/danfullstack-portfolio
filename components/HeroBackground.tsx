@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 /* eslint-disable react/no-unknown-property */
 import {
@@ -14,8 +15,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
 import { degToRad } from "three/src/math/MathUtils.js";
 
-function extendMaterial(BaseMaterial, cfg) {
-  const physical = THREE.ShaderLib.physical;
+function extendMaterial(BaseMaterial: any, cfg: any) {
+  const physical: any = THREE.ShaderLib.physical;
   const {
     vertexShader: baseVert,
     fragmentShader: baseFrag,
@@ -62,11 +63,9 @@ function extendMaterial(BaseMaterial, cfg) {
 }
 
 const CanvasWrapper = ({ children }) => (
- 
-    <Canvas dpr={[1, 2]} frameloop="always" className="beams-container">
-      {children}
-    </Canvas>
-
+  <Canvas dpr={[1, 2]} frameloop="always" className="beams-container">
+    {children}
+  </Canvas>
 );
 
 const hexToNormalizedRGB = (hex) => {
@@ -298,33 +297,58 @@ function createStackedPlanesBufferGeometry(
   return geometry;
 }
 
-const MergedPlanes = forwardRef(({ material, width, count, height }, ref) => {
-  const mesh = useRef(null);
-  useImperativeHandle(ref, () => mesh.current);
-  const geometry = useMemo(
-    () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
-    [count, width, height],
-  );
-  useFrame((_, delta) => {
-    mesh.current.material.uniforms.time.value += 0.1 * delta;
-  });
-  return <mesh ref={mesh} geometry={geometry} material={material} />;
-});
+const MergedPlanes = forwardRef(
+  (
+    {
+      material,
+      width,
+      count,
+      height,
+    }: {
+      material: any;
+      width: number;
+      count: number;
+      height: number;
+    },
+    ref: any,
+  ) => {
+    const mesh = useRef<any>(null);
+    useImperativeHandle(ref, () => mesh.current);
+    const geometry = useMemo(
+      () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
+      [count, width, height],
+    );
+    useFrame((_, delta) => {
+      mesh.current.material.uniforms.time.value += 0.1 * delta;
+    });
+    return <mesh ref={mesh} geometry={geometry} material={material} />;
+  },
+);
 MergedPlanes.displayName = "MergedPlanes";
 
-const PlaneNoise = forwardRef((props, ref) => (
-  <MergedPlanes
-    ref={ref}
-    material={props.material}
-    width={props.width}
-    count={props.count}
-    height={props.height}
-  />
-));
+const PlaneNoise = forwardRef(
+  (
+    props: {
+      material: any;
+      width: number;
+      count: number;
+      height: number;
+    },
+    ref: any,
+  ) => (
+    <MergedPlanes
+      ref={ref}
+      material={props.material}
+      width={props.width}
+      count={props.count}
+      height={props.height}
+    />
+  ),
+);
 PlaneNoise.displayName = "PlaneNoise";
 
-const DirLight = ({ position, color }) => {
-  const dir = useRef(null);
+const DirLight = ({ position, color }: { position: any; color: string }) => {
+  const dir = useRef<any>(null);
   useEffect(() => {
     if (!dir.current) return;
     const cam = dir.current.shadow.camera;
