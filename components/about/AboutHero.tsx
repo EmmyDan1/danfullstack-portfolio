@@ -7,12 +7,12 @@ export default function AboutHero() {
     <section className="px-8 pt-20 pb-10">
       <p
         style={{
-          fontSize: "10px",
+          fontSize: "15px",
           letterSpacing: "0.25em",
           color: "#f5c842",
           textTransform: "uppercase",
           marginBottom: "16px",
-          fontWeight: 500,
+          fontWeight: 200,
         }}
       >
         About Me
@@ -25,6 +25,7 @@ export default function AboutHero() {
           color: "var(--color-primary)",
           letterSpacing: "0.04em",
           lineHeight: 1,
+          fontWeight: 100,
         }}
       >
         <BlurText
@@ -39,7 +40,7 @@ export default function AboutHero() {
         style={{
           fontSize: "11px",
           letterSpacing: "0.2em",
-          color: "rgba(255,255,255,0.3)",
+          color: "rgba(255,255,255,0.9)",
           textTransform: "uppercase",
           marginTop: "8px",
         }}

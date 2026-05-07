@@ -10,15 +10,30 @@ const Divider = () => (
 
 export default function About() {
   return (
-    <main style={{ fontFamily: "var(--font-inter)" }} className="relative min-h-screen w-full md:pl-20">
-      <AboutHero />
-      <Divider />
-      <AboutBio />
-      <AboutStats />
-      <Divider />
-      <AboutSkills />
-      <Divider />
-      <AboutApproach />
+    <main
+      style={{ fontFamily: "var(--font-inter)" }}
+      className="relative min-h-screen w-full md:pl-24"
+    >
+      {/* MOBILE — stacked, DESKTOP — two column */}
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-0 md:min-h-screen">
+
+        {/* LEFT COL */}
+        <div className="flex flex-col border-r border-white/5">
+          <AboutHero />
+          <Divider />
+          <AboutBio />
+          <Divider />
+          <AboutStats />
+        </div>
+
+        {/* RIGHT COL */}
+        <div className="flex flex-col">
+          <AboutSkills />
+          <Divider />
+          <AboutApproach />
+        </div>
+
+      </div>
     </main>
   );
 }

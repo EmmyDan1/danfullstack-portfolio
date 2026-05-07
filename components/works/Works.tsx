@@ -27,26 +27,28 @@ export default function Works() {
   return (
     <section
       ref={ref}
+      id="works"
       style={{
         fontFamily: "var(--font-inter)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(5px)",
-        transition:
-          "opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)",
+        transition: "opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)",
       }}
-      className="relative w-full min-h-screen px-10 py-12 overflow-hidden"
-      id="works"
+      className="relative  w-full min-h-screen overflow-hidden
+        px-6 py-30
+        md:pl-40 md:pr-12 md:py-20"
     >
       {/* Header */}
-      <div className="flex items-baseline gap-5 mb-10">
+      <div className="flex  baseline gap-4 md:gap-24 mb-10 md:mb-14">
         <h2
           style={{
             fontFamily: "var(--font-smooch)",
-            fontSize: "clamp(2.5rem, 6vw, 4rem)",
+            fontSize: "clamp(1.5rem, 3vw, 1rem)",
             letterSpacing: "0.08em",
             color: "var(--color-primary)",
             lineHeight: 1,
           }}
+         
         >
           WORKS
         </h2>
@@ -65,13 +67,7 @@ export default function Works() {
           >
             view demo
           </a>
-          <div
-            style={{
-              width: "1px",
-              height: "10px",
-              background: "rgba(255,255,255,0.12)",
-            }}
-          />
+          <div style={{ width: "1px", height: "10px", background: "rgba(255,255,255,0.12)" }} />
           <a
             href={project.github}
             target="_blank"
@@ -93,7 +89,7 @@ export default function Works() {
       <ProjectCard project={project} />
 
       {/* Footer */}
-      <div className="flex items-center justify-between mt-8">
+      <div className="flex items-center justify-between mt-8 md:mt-12">
         <div className="flex items-center gap-2">
           {projects.map((_, i) => (
             <div
@@ -102,8 +98,7 @@ export default function Works() {
               style={{
                 width: i === current ? "36px" : "18px",
                 height: "2px",
-                background:
-                  i === current ? "#f5c842" : "rgba(255,255,255,0.12)",
+                background: i === current ? "#f5c842" : "rgba(255,255,255,0.6)",
                 borderRadius: "2px",
                 cursor: "pointer",
                 transition: "all 0.3s cubic-bezier(0.4,0,0.2,1)",
@@ -120,7 +115,7 @@ export default function Works() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "50%",
-                border: "0.5px solid rgba(255,255,255,0.12)",
+                border: "0.5px solid rgba(255,255,255,0.6)",
                 background: "transparent",
                 cursor: "pointer",
                 display: "flex",
@@ -129,18 +124,11 @@ export default function Works() {
                 color: "rgba(255,255,255,0.35)",
                 transition: "all 0.2s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#f5c842";
-                e.currentTarget.style.color = "#f5c842";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.35)";
-              }}
+        className=""
             >
               <svg
-                width="12"
-                height="12"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

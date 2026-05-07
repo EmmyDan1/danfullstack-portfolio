@@ -5,7 +5,7 @@ export default function AboutBio() {
         style={{
           fontSize: "13px",
           lineHeight: 1.9,
-          color: "rgba(255,255,255,0.45)",
+          color: "var(--color-secondary)",
           fontWeight: 300,
         }}
       >
@@ -18,7 +18,7 @@ export default function AboutBio() {
         style={{
           fontSize: "13px",
           lineHeight: 1.9,
-          color: "rgba(255,255,255,0.3)",
+          color: "var(--color-primary)",
           fontWeight: 300,
           marginTop: "16px",
         }}

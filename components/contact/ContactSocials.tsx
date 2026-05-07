@@ -23,7 +23,7 @@ export default function ContactSocials() {
         style={{
           fontSize: "9px",
           letterSpacing: "0.25em",
-          color: "rgba(255,255,255,0.2)",
+          color: "rgba(255,255,255,0.6)",
           textTransform: "uppercase",
           marginBottom: "20px",
         }}
@@ -57,7 +57,7 @@ export default function ContactSocials() {
               <span
                 style={{
                   fontSize: "11px",
-                  color: "rgba(255,255,255,0.2)",
+                  color: "rgba(255,255,255,0.4)",
                   fontWeight: 300,
                 }}
               >
@@ -69,7 +69,7 @@ export default function ContactSocials() {
               height="14"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="rgba(255,255,255,0.2)"
+              stroke="rgba(255,255,255,0.9)"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"

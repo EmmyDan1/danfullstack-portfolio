@@ -12,12 +12,12 @@ export default function ContactEmail() {
   };
 
   return (
-    <div className="mb-16">
+    <div>
       <p
         style={{
-          fontSize: "9px",
+          fontSize: "12px",
           letterSpacing: "0.25em",
-          color: "rgba(255,255,255,0.2)",
+          color: "var(--color-secondary)",
           textTransform: "uppercase",
           marginBottom: "12px",
         }}
@@ -28,11 +28,12 @@ export default function ContactEmail() {
         <a
           href="mailto:emmydan68@gmail.com"
           style={{
-            fontSize: "clamp(1rem, 3vw, 1.4rem)",
+            fontSize: "clamp(1rem, 2vw, 1.2rem)",
             color: "var(--color-primary)",
             textDecoration: "none",
             letterSpacing: "0.02em",
             transition: "color 0.2s",
+            fontWeight: 200,
           }}
           onMouseEnter={e => (e.currentTarget.style.color = "#f5c842")}
           onMouseLeave={e => (e.currentTarget.style.color = "var(--color-primary)")}
@@ -45,7 +46,7 @@ export default function ContactEmail() {
             fontSize: "9px",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color: copied ? "#f5c842" : "rgba(255,255,255,0.2)",
+            color: copied ? "#f5c842" : "rgba(255,255,255,0.6)",
             background: "none",
             border: "0.5px solid rgba(255,255,255,0.1)",
             padding: "4px 10px",
@@ -58,6 +59,6 @@ export default function ContactEmail() {
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-   </div>
+    </div>
   );
 }

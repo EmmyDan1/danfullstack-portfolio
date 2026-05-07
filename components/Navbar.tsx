@@ -60,16 +60,16 @@ export default function Navbar() {
         style={{ zIndex: 9999 }}
       >
         {/* Menu Items */}
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-4">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
-              className={`text-xs font-medium tracking-widest transition-colors ${
+              style={{  textOrientation: "mixed" }}
+              className={`text-xs font-extralight tracking-widest transition-colors ${
                 isActive(item.href)
-                  ? "text-white border-r border-white pr-1"
-                  : "text-white/50 hover:text-white"
+                  ? "text-white border-b border-white pr-1"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               {item.label}

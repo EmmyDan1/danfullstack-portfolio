@@ -20,7 +20,7 @@ export default function AboutApproach() {
         style={{
           fontSize: "9px",
           letterSpacing: "0.25em",
-          color: "rgba(255,255,255,0.2)",
+          color: "var(--color-secondary)",
           textTransform: "uppercase",
           marginBottom: "16px",
         }}
@@ -51,7 +51,7 @@ export default function AboutApproach() {
             <p
               style={{
                 fontSize: "12px",
-                color: "rgba(255,255,255,0.35)",
+                color: "rgba(255,255,255,0.6)",
                 lineHeight: 1.7,
                 fontWeight: 300,
               }}

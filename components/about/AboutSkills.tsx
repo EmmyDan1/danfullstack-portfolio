@@ -6,15 +6,16 @@ const toolSkills = ["Git & GitHub", "Vercel", "SaaS Dashboards", "Logistics Syst
 
 export default function AboutSkills() {
   return (
-    <section className="py-10">
+    <section className="py-10 w-[360px] mx-auto md:w-[500px] lg:w-[600px] md:mx-0">
       <p
         style={{
           fontSize: "9px",
           letterSpacing: "0.25em",
-          color: "rgba(255,255,255,0.2)",
+          color: "rgba(255,255,255,0.6)",
           textTransform: "uppercase",
           paddingLeft: "32px",
           marginBottom: "20px",
+          marginTop: "20px",
         }}
       >
         Skill Set

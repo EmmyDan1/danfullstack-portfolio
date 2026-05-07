@@ -6,13 +6,13 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <section className="px-8 py-6 flex items-center gap-10 border-t border-b border-white/5">
+    <section className="px-8 py-8 grid grid-cols-3 gap-4 border-t border-b border-white/5">
       {stats.map((stat) => (
-        <div key={stat.label}>
+        <div key={stat.label} className="flex flex-col items-start">
           <p
             style={{
               fontFamily: "var(--font-smooch)",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
               color: "var(--color-primary)",
               letterSpacing: "0.04em",
               lineHeight: 1,
@@ -24,7 +24,7 @@ export default function AboutStats() {
             style={{
               fontSize: "9px",
               letterSpacing: "0.15em",
-              color: "rgba(255,255,255,0.25)",
+              color: "rgba(255,255,255,0.6)",
               textTransform: "uppercase",
               marginTop: "4px",
             }}
